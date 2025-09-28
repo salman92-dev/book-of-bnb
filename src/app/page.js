@@ -446,7 +446,7 @@ const handleOpenBook2 = () => {
           </div>
         </div>
 
-        <div className="bg-[#F1B70C] h-full px-6 flex flex-col justify-center relative shadow-xl">
+        <div className="bg-[#F1B70C] h-full px-4 flex flex-col justify-center relative shadow-xl">
           <div className="flex flex-col justify-center h-full">
             <h2 className="text-black mama-bear text-sm mb-0">HOW TO BUY</h2>
             <p className="single-day text-black text-xs !leading-[100%]">Set up a wallet –</p>
