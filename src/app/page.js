@@ -65,7 +65,7 @@ const handleOpenBook2 = () => {
         )}
       </AnimatePresence>
 
-      <div className="flex items-center gap-2 absolute top-0 -right-8 md:right-6">
+      <div className="flex items-center gap-2 absolute top-8 right-8 md:right-6">
   <a href="">
     <Image
       src="/x.svg"
@@ -94,14 +94,15 @@ const handleOpenBook2 = () => {
       className="transition-transform duration-300 hover:scale-110 hover:-translate-y-1"
     />
   </a>
-  <a href="">
+  <a href="" className="border-2 border-[#F0B912] rounded-full px-8 py-2 text-[#F0B912] transition-transform duration-300 hover:scale-105 hover:-translate-y-1 relative">
     <Image
-      src="/join-btn.svg"
+      src="/neon.png"
       alt="logo"
-      width={250}
-      height={50}
-      className="ml-[-2rem] transition-transform duration-300 hover:scale-105 hover:-translate-y-1"
+      width={120}
+      height={5}
+      className="absolute left-2 top-[-140%]"
     />
+    BUY $ABC
   </a>
 </div>
 
@@ -167,13 +168,14 @@ const handleOpenBook2 = () => {
           <Image src="/cover-page.png" width={500} height={500} alt="img" />
         </div>
 
-        <div className="bg-[#F1B70C] h-full px-16 py-[15%] flex flex-col justify-center">
+        <div className="bg-[#F1B70C] h-full px-16 py-[10%] flex flex-col justify-center">
           <h1 className="text-black mama-bear text-3xl mb-2">WHAT IS BOOK OF BNB?</h1>
           <p className="single-day text-black text-xl !leading-[100%]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat
+            Book of BNB ($ABC) is a meme token inspired by Binance’s 
+            legendary “book” moment. It celebrates the culture, humor, 
+            and community of crypto while carrying forward the spirit of 
+            that iconic tweet. Simple, fun, and community-driven it’s more 
+            than just a token, it’s a story.
           </p>
         </div>
 
@@ -212,14 +214,13 @@ const handleOpenBook2 = () => {
 
         <div className="bg-[#F1B70C] h-full px-16 py-[2%] pl-36 flex flex-col justify-center relative">
           <Image src="/bnb-logo.png" alt="logo" width={200} height={200} className="absolute left-0 w-32 top-26" />
-          <h2 className="text-black mama-bear text-3xl mb-4">OUR STORY</h2>
-          <p className="single-day text-black text-xl !leading-[100%]">
-            It all started with a simple idea — what if memes and crypto could be combined 
-            into one powerful book of fun? That’s how Book of BNB ($ABC) 
-            was born. From community jokes to a real token, we’ve grown into 
-            a project that unites people with laughter, creativity, and the dream 
-            of going to the moon together.
-          </p>
+          <div className="flex flex-col justify-center h-full">
+            <h2 className="text-black mama-bear text-3xl mb-4">OUR STORY</h2>
+            <p className="single-day text-black text-xl !leading-[100%]">
+              It all started with a simple idea — what if memes and crypto could be combined 
+              into one powerful book of fun? 
+            </p>
+          </div>
         </div>
 
         <div className="bg-[#F1B70C] h-full px-16 py-[10%] pr-36 flex flex-col justify-center relative shadow-xl">
@@ -230,13 +231,14 @@ const handleOpenBook2 = () => {
             height={200}
             className="absolute right-0 w-32 top-26 scale-x-[-1]"
           />
-          <p className="single-day text-black text-xl !leading-[100%] mt-20">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat
+          <div className="flex flex-col justify-center h-full">
+            <p className="single-day text-black text-xl !leading-[100%] mt-20">
+            That’s how Book of BNB ($ABC) 
+            was born. From community jokes to a real token, we’ve grown into 
+            a project that unites people with laughter, creativity, and the dream 
+            of going to the moon together.
           </p>
+          </div>
         </div>
 
         <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] h-full px-16 py-[10%] flex flex-col justify-center">
@@ -317,7 +319,8 @@ const handleOpenBook2 = () => {
           </div>
         </div>
       </HTMLFlipBook>
-      <HTMLFlipBook
+      <div className="w-full px-2">
+        <HTMLFlipBook
         ref={bookRef2}
         width={380}
         height={483}
@@ -395,14 +398,13 @@ const handleOpenBook2 = () => {
 
         <div className="bg-[#F1B70C] h-full px-6 py-[3%] pl-10 flex flex-col justify-center relative">
           <Image src="/bnb-logo.png" alt="logo" width={200} height={200} className="absolute left-0 w-10 top-22" />
-          <h2 className="text-black mama-bear text-md mb-2">OUR STORY</h2>
-          <p className="single-day text-black text-sm !leading-[100%]">
-            It all started with a simple idea — what if memes and crypto could 
-            be combined into one powerful book of fun? That’s how Book of 
-            BNB ($ABC) was born. From community jokes to a real token, 
-            we’ve grown into a project that unites people with laughter, 
-            creativity, and the dream of going to the moon together.
-          </p>
+          <div className="flex flex-col justify-center h-full">
+            <h2 className="text-black mama-bear text-md mb-2">OUR STORY</h2>
+            <p className="single-day text-black text-sm !leading-[100%]">
+              It all started with a simple idea — what if memes and crypto could 
+              be combined into one powerful book of fun?
+            </p>
+          </div>
         </div>
 
         <div className="bg-[#F1B70C] h-full px-6 py-[3%] pr-12 flex flex-col justify-center relative shadow-xl">
@@ -413,13 +415,14 @@ const handleOpenBook2 = () => {
             height={200}
             className="absolute right-0 w-10 top-22 scale-x-[-1]"
           />
-          <p className="single-day text-black text-sm !leading-[100%] mt-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat
+          <div className="flex flex-col justify-center h-full">
+            <p className="single-day text-black text-sm !leading-[100%] mt-8">
+             That’s how Book of 
+            BNB ($ABC) was born. From community jokes to a real token, 
+            we’ve grown into a project that unites people with laughter, 
+            creativity, and the dream of going to the moon together.
           </p>
+          </div>
         </div>
 
         <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] h-full px-6 py-[2%] flex flex-col justify-center">
@@ -448,7 +451,7 @@ const handleOpenBook2 = () => {
 
         <div className="bg-[#F1B70C] h-full px-6 flex flex-col justify-center relative shadow-xl">
           <div className="flex flex-col justify-center h-full">
-            <h2 className="text-black mama-bear text-md mb-0">HOW TO BUY</h2>
+            <h2 className="text-black mama-bear text-sm mb-0">HOW TO BUY</h2>
             <p className="single-day text-black text-xs !leading-[100%]">Set up a wallet –</p>
             <p className="single-day text-[#4C4C4C] text-xs !leading-[100%] mb-0">
               Install a BNB Chain–compatible wallet like MetaMask or
@@ -500,6 +503,7 @@ const handleOpenBook2 = () => {
           </div>
         </div>
       </HTMLFlipBook>
+      </div>
       <p className="single-day text-xl absolute bottom-3">
         © 2025 BOOK OF BNB . All rights reserved.
       </p>
