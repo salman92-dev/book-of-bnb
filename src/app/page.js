@@ -5,16 +5,23 @@ import HTMLFlipBook from "react-pageflip";
 import { motion, AnimatePresence } from "framer-motion";
 export default function Home() {
   const bookRef = useRef(null);
+  const bookRef2 = useRef(null);
   const [isReady, setIsReady] = useState(false);
- const [opened, setOpened] = useState(false); // controls button visibility
+ const [opened, setOpened] = useState(false);
+ const [opened1, setOpened1] = useState(false);
 
-  const handleOpenBook = () => {
-    if (bookRef.current) {
-      // If you want it to flip into the first page
-      bookRef.current.pageFlip().flipNext();
-    }
-    setOpened(true); // hide button after first click
-  };
+const handleOpenBook = () => {
+  if (bookRef.current) {
+    bookRef.current.pageFlip().flipNext();
+  }
+  setOpened(true);
+};
+const handleOpenBook2 = () => {
+  if (bookRef2.current) {
+    bookRef2.current.pageFlip().flipNext();
+  }
+  setOpened1(true);
+};
 
   // Fallback: hide loader even if onInit never fires (network hiccups, etc.)
   useEffect(() => {
@@ -122,7 +129,15 @@ export default function Home() {
       {!opened && (
         <button
           onClick={handleOpenBook}
-          className="absolute hidden md:block bottom-16  z-20 px-6 py-3 bg-[#F1B70C] text-black mama-bear text-xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+          className="absolute hidden  md:block bottom-16  z-20 px-6 py-3 bg-[#F1B70C] text-black mama-bear text-xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+        >
+          Open Book
+        </button>
+      )}
+      {!opened1 && (
+        <button
+          onClick={handleOpenBook2}
+          className="absolute block  md:hidden bottom-16  z-20 px-6 py-3 bg-[#F1B70C] text-black mama-bear text-xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
         >
           Open Book
         </button>
@@ -303,7 +318,7 @@ export default function Home() {
         </div>
       </HTMLFlipBook>
       <HTMLFlipBook
-        // ref={bookRef}
+        ref={bookRef2}
         width={380}
         height={483}
         size="stretch"
