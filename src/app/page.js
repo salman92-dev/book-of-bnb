@@ -349,13 +349,10 @@ const handleOpenBook2 = () => {
           </div>
         </div>
 
-        <div className="bg-[#F1B70C] h-full px-6 py-[3%] flex flex-col justify-center">
+        <div className="bg-[#F1B70C] h-full px-4 py-[3%] flex flex-col justify-center">
           <h1 className="text-black mama-bear text-md mb-2">WHAT IS BOOK OF BNB?</h1>
           <p className="single-day text-black text-sm !leading-[100%]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat
+            Book of BNB ($ABC) is a meme token inspired by Binance’s legendary “book” moment. It celebrates the culture, humor, and community of crypto while carrying forward the spirit of that iconic tweet. Simple, fun, and community-driven it’s more than just a token, it’s a story.
           </p>
         </div>
 
