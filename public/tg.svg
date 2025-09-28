@@ -1,0 +1,15 @@
+<svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="31" cy="31" r="25" fill="url(#paint0_radial_50_417)" fill-opacity="0.5"/>
+<circle cx="31" cy="31" r="25" stroke="url(#paint1_linear_50_417)" stroke-width="1.5" style="mix-blend-mode:overlay"/>
+<path d="M39.9487 24.3655L37.2324 37.0945C37.0275 37.9929 36.493 38.2165 35.7335 37.7933L31.5948 34.7627L29.5978 36.6713C29.3769 36.8909 29.192 37.0746 28.766 37.0746L29.0634 32.8861L36.7341 25.9986C37.0677 25.7031 36.6618 25.5394 36.2158 25.8349L26.7328 31.7681L22.6503 30.4984C21.7623 30.2229 21.7462 29.616 22.8351 29.1928L38.8035 23.0799C39.5428 22.8044 40.1898 23.2435 39.9487 24.3655Z" fill="white"/>
+<defs>
+<radialGradient id="paint0_radial_50_417" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(28.5 19) rotate(38.6598) scale(28.8141)">
+<stop stop-color="#545659"/>
+<stop offset="1" stop-color="#232629"/>
+</radialGradient>
+<linearGradient id="paint1_linear_50_417" x1="14.5" y1="19.5" x2="52" y2="65.5" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0.45"/>
+<stop offset="0.992881" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>
