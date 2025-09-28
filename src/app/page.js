@@ -6,6 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Home() {
   const bookRef = useRef(null);
   const [isReady, setIsReady] = useState(false);
+ const [opened, setOpened] = useState(false); // controls button visibility
+
+  const handleOpenBook = () => {
+    if (bookRef.current) {
+      // If you want it to flip into the first page
+      bookRef.current.pageFlip().flipNext();
+    }
+    setOpened(true); // hide button after first click
+  };
 
   // Fallback: hide loader even if onInit never fires (network hiccups, etc.)
   useEffect(() => {
@@ -23,7 +32,7 @@ export default function Home() {
 
   return (
     <div
-      className="bg-[url('/page-bg.png')] h-screen w-screen flex flex-col items-center justify-center overflow-hidden relative"
+      className="bg-[url('/page-bg.png')] h-[90vh] md:h-[100vh] w-screen flex flex-col items-center justify-center overflow-hidden relative"
       style={{ backgroundSize: 'cover', backgroundPosition: 'bottom center' }}
     >
       {/* Loader overlay */}
@@ -109,14 +118,22 @@ export default function Home() {
           <Image src="/left-arrow.png" alt="arrow" width={100} height={20} className="scale-x-[-1] pointer-events-none" />
         </button>
       </div>
-
+ {/* Open Book Button */}
+      {!opened && (
+        <button
+          onClick={handleOpenBook}
+          className="absolute hidden md:block bottom-16  z-20 px-6 py-3 bg-[#F1B70C] text-black mama-bear text-xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+        >
+          Open Book
+        </button>
+      )}
       <HTMLFlipBook
         ref={bookRef}
         width={380}
         height={433}
         showCover={true}
         mobileScrollSupport={false}
-        className="book-container"
+        className="book-container !hidden md:!block"
         startPage={0}
         drawShadow={true}
         flippingTime={1500}
@@ -146,7 +163,7 @@ export default function Home() {
         </div>
 
         <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)]">
-          <Image src="/cover-page.png" width={500} height={500} alt="img" />
+          <Image src="/abc.png" width={500} height={500} alt="img" className="object-cover w-full h-full"/>
         </div>
 
         <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-24 py-[12%]">
@@ -156,37 +173,37 @@ export default function Home() {
         <div className="bg-[url(/about-bg.png)] bg-cover bg-center h-full px-16 py-[15%] flex flex-col justify-center">
           <h1 className="text-black mama-bear text-3xl mb-2">About bnb book</h1>
           <p className="single-day text-black text-xl !leading-[100%]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat
+            Book of BNB ($ABC) is a community-driven meme token on 
+            BNB Chain, blending fun, memes, and crypto vibes. We’re 
+            here to write a new chapter in meme coin history — with 
+            laughs, unity, and moon missions.
           </p>
         </div>
 
-        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-16 py-[2%]">
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-3 overflow-hidden">
+          <h1 className="text-[#F1B80B] mama-bear text-3xl mb-6 text-center mt-4">THE VIRAL TWEET</h1>
           <Image src="/man.png" width={500} height={500} alt="img" />
         </div>
 
-        <div className="bg-[#F1B80B] px-14 py-[15%] flex flex-col justify-center relative">
-          <h1 className="text-black mama-bear text-3xl mb-6">THE VIRAL TWEET FROM CZ</h1>
+        <div className="bg-black px-4 py-[2%] flex flex-col justify-center relative w-full h-full">
           <Image
             src="/ss.png"
             alt="ss"
             width={700}
             height={300}
-            className="absolute md:right-10 right-5 !max-w-[80%] md:!max-w-[27rem]"
+            className="absolute md:right-10 right-5 !max-w-[80%]"
           />
         </div>
 
-        <div className="bg-[#F1B70C] h-full px-16 py-[10%] pl-36 flex flex-col justify-center relative">
+        <div className="bg-[#F1B70C] h-full px-16 py-[2%] pl-36 flex flex-col justify-center relative">
           <Image src="/bnb-logo.png" alt="logo" width={200} height={200} className="absolute left-0 w-32 top-26" />
           <h2 className="text-black mama-bear text-3xl mb-4">OUR STORY</h2>
           <p className="single-day text-black text-xl !leading-[100%]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat
+            It all started with a simple idea — what if memes and crypto could be combined 
+            into one powerful book of fun? That’s how Book of BNB ($ABC) 
+            was born. From community jokes to a real token, we’ve grown into 
+            a project that unites people with laughter, creativity, and the dream 
+            of going to the moon together.
           </p>
         </div>
 
@@ -285,7 +302,189 @@ export default function Home() {
           </div>
         </div>
       </HTMLFlipBook>
+      <HTMLFlipBook
+        // ref={bookRef}
+        width={380}
+        height={483}
+        size="stretch"
+        usePortrait={true}
+        showCover={true}
+        mobileScrollSupport={false}
+        className="book-container md:!hidden !block"
+        startPage={0}
+        drawShadow={true}
+        flippingTime={1500}
+        startZIndex={0}
+        autoSize={true}
+        maxShadowOpacity={0.5}
+        showPageCorners={true}
+        disableFlipByClick={false}
+        clickEventForward={true}
+        useMouseEvents={true}
+        swipeDistance={30}
+        // When flipbook instance is ready, fade out the loader
+        onInit={() => setIsReady(true)}
+      >
+        <div className="demoPage bg-black">
+          <div className="flex items-center justify-center h-full">
+          <Image src="/cover-page.png" width={500} height={500} alt="img" />
+          </div>
+        </div>
 
+        <div className="bg-[#F1B70C] h-full px-6 py-[3%] flex flex-col justify-center">
+          <h1 className="text-black mama-bear text-md mb-2">WHAT IS BOOK OF BNB?</h1>
+          <p className="single-day text-black text-sm !leading-[100%]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat
+          </p>
+        </div>
+
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)]">
+          <div className="flex items-center justify-center h-full overflow-hidden">
+          <Image src="/abc.png" width={500} height={500} alt="img" className="w-full" />
+          </div>
+        </div>
+
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-6">
+          <div className="flex items-center justify-center h-full">
+          <Image src="/bnb.png" width={500} height={500} alt="img" />
+          </div>
+        </div>
+
+        <div className="bg-[url(/about-bg.png)] bg-cover bg-center h-full px-6 py-[5%] flex flex-col justify-center">
+          <h1 className="text-black mama-bear text-md mb-2">About bnb book</h1>
+          <p className="single-day text-black text-sm !leading-[100%]">
+           Book of BNB ($ABC) is a community-driven meme token on BNB 
+           Chain, blending fun, memes, and crypto vibes. We’re here to write 
+           a new chapter in meme coin history — with laughs, unity, and 
+           moon missions.
+          </p>
+        </div>
+
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-2 py-[2%] overflow-hidden">
+          <h1 className="text-[#F1B80B] mama-bear text-md mb-6 text-center mt-4">THE VIRAL TWEET</h1>
+          <Image src="/man.png" width={500} height={500} alt="img" />
+        </div>
+
+        <div className="bg-[#F1B80B] px-4 py-[5%] flex flex-col justify-center relative">
+          <Image
+            src="/ss.png"
+            alt="ss"
+            width={700}
+            height={300}
+            className="absolute md:right-10 right-5 w-[80%]"
+          />
+        </div>
+
+        <div className="bg-[#F1B70C] h-full px-6 py-[3%] pl-10 flex flex-col justify-center relative">
+          <Image src="/bnb-logo.png" alt="logo" width={200} height={200} className="absolute left-0 w-10 top-22" />
+          <h2 className="text-black mama-bear text-md mb-2">OUR STORY</h2>
+          <p className="single-day text-black text-sm !leading-[100%]">
+            It all started with a simple idea — what if memes and crypto could 
+            be combined into one powerful book of fun? That’s how Book of 
+            BNB ($ABC) was born. From community jokes to a real token, 
+            we’ve grown into a project that unites people with laughter, 
+            creativity, and the dream of going to the moon together.
+          </p>
+        </div>
+
+        <div className="bg-[#F1B70C] h-full px-6 py-[3%] pr-12 flex flex-col justify-center relative shadow-xl">
+          <Image
+            src="/bnb-logo.png"
+            alt="logo"
+            width={200}
+            height={200}
+            className="absolute right-0 w-10 top-22 scale-x-[-1]"
+          />
+          <p className="single-day text-black text-sm !leading-[100%] mt-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat
+          </p>
+        </div>
+
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] h-full px-6 py-[2%] flex flex-col justify-center">
+          <div className="flex items-center justify-center h-full">
+            <Image src="/tokenomics.gif" alt="token" width={500} height={500} />
+          </div>
+        </div>
+
+        <div className="bg-[#F1B70C] h-full px-6 flex flex-col justify-center relative shadow-xl">
+          <div className="flex flex-col justify-center h-full">
+            <h2 className="text-black mama-bear text-md mb-4">Tokenomics</h2>
+            <p className="single-day text-black text-sm !leading-[100%]">
+              Total Supply: 100 Million<br />
+              Contract: Renounced<br />
+              Buy/Sell Tax: 0/0%<br />
+              LP Tokens: Burnt
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-[#0A0A0A] h-full px-16 py-[10%] flex flex-col justify-center">
+          <div className="flex items-center justify-center h-full">
+            <Image src="/coins.png" alt="token" width={300} height={300} />
+          </div>
+        </div>
+
+        <div className="bg-[#F1B70C] h-full px-6 flex flex-col justify-center relative shadow-xl">
+          <div className="flex flex-col justify-center h-full">
+            <h2 className="text-black mama-bear text-md mb-0">HOW TO BUY</h2>
+            <p className="single-day text-black text-xs !leading-[100%]">Set up a wallet –</p>
+            <p className="single-day text-[#4C4C4C] text-xs !leading-[100%] mb-0">
+              Install a BNB Chain–compatible wallet like MetaMask or
+              Trust Wallet, and fund it with BNB for gas + purchase.
+            </p>
+
+            <p className="single-day text-black text-xs !leading-[100%]">Connect to DEX –</p>
+            <p className="single-day text-[#4C4C4C] text-xs !leading-[100%] mb-0">
+              Go to a decentralized exchange (DEX) such as PancakeSwap,
+              switch network to BNB Smart Chain, and connect your wallet.
+            </p>
+
+            <p className="single-day text-black text-xs !leading-[100%]">Swap for $BNBBOOK –</p>
+            <p className="single-day text-[#4C4C4C] text-xs !leading-[100%]">
+              Paste the official $BNBBOOK contract address, enter the amount
+              of BNB you want to swap, confirm the trade, and approve in
+              your wallet.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-[#0A0A0A] h-full flex flex-col justify-center">
+          <div className="flex items-center justify-center h-full overflow-hidden">
+            <Image src="/the-end.png" alt="token" width={400} height={300} className="w-full" />
+          </div>
+        </div>
+
+        <div className="bg-[#F1B70C] h-full px-6 flex flex-col justify-center relative shadow-xl">
+          <div className="flex flex-col justify-center h-full">
+            <h2 className="text-black mama-bear text-md mb-2">Join Us</h2>
+            <p className="mama-bear text-black text-base !leading-[100%]">Buy Now:</p>
+            <p className="single-day text-[#4C4C4C] text-sm !leading-[100%] mb-2">→ Uniswap</p>
+
+            <p className="mama-bear text-black text-sm !leading-[100%]">telegram</p>
+            <a
+              href="https://t.me/@bookofbnb_erc"
+              className="single-day text-[#4C4C4C] text-xl !leading-[100%] mb-2"
+            >
+              → @bookofbnb_erc
+            </a>
+
+            <p className="single-day text-black text-sm !leading-[100%]">twitter:</p>
+            <a
+              href="https://x.com/@bookofbnb_erc"
+              className="single-day text-[#4C4C4C] text-xl !leading-[100%]"
+            >
+              → @bookofbnb_erc
+            </a>
+          </div>
+        </div>
+      </HTMLFlipBook>
       <p className="single-day text-xl absolute bottom-3">
         © 2025 BOOK OF BNB . All rights reserved.
       </p>
