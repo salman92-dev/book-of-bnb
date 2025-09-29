@@ -201,7 +201,7 @@ const handleOpenBook2 = () => {
         alt="img"
         // optional tuning:
         amplitude={12}   // increase for more float
-        tilt={2}         // set to 0 for no 3D tilt
+        tilt={10}         // set to 0 for no 3D tilt
         duration={6}     // slower/faster cycle
       />
         </div>
