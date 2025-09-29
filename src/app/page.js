@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import HTMLFlipBook from "react-pageflip";
 import { motion, AnimatePresence } from "framer-motion";
+import LiteHover3D from "./components/Parellexeffect";
+import FloatingImage from "./components/floating-img";
 export default function Home() {
   const bookRef = useRef(null);
   const bookRef2 = useRef(null);
@@ -164,11 +166,23 @@ const handleOpenBook2 = () => {
         // When flipbook instance is ready, fade out the loader
         onInit={() => setIsReady(true)}
       >
-        <div className="demoPage">
-          <Image src="/cover-page.png" width={500} height={500} alt="img" />
-        </div>
+        <div className="demoPage flex items-center justify-center h-screen bg-gray-100">
+            <div className="perspective-1000">
+              <Image
+                src="/cover-page.png"
+                width={500}
+                height={500}
+                alt="img"
+                className="shadow-2xl transform transition-transform duration-500 hover:rotate-y-12 hover:rotate-x-6 hover:scale-110"
+              />
+            </div>
+          </div>
 
-        <div className="bg-[#F1B70C] h-full px-16 py-[10%] flex flex-col justify-center">
+          <div>
+            <LiteHover3D />
+          </div>
+
+        {/* <div className="bg-[#F1B70C] h-full px-16 py-[10%] flex flex-col justify-center">
           <h1 className="text-black mama-bear text-3xl mb-2">WHAT IS BOOK OF BNB?</h1>
           <p className="single-day text-black text-xl !leading-[100%]">
             Book of BNB ($ABC) is a meme token inspired by Binance’s 
@@ -177,10 +191,19 @@ const handleOpenBook2 = () => {
             that iconic tweet. Simple, fun, and community-driven it’s more 
             than just a token, it’s a story.
           </p>
-        </div>
+        </div> */}
 
-        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)]">
-          <Image src="/abc.png" width={500} height={500} alt="img" className="object-cover w-full h-full"/>
+        <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] overflow-hidden">
+          <FloatingImage
+        src="/abc.png"
+        width={500}
+        height={500}
+        alt="img"
+        // optional tuning:
+        amplitude={12}   // increase for more float
+        tilt={2}         // set to 0 for no 3D tilt
+        duration={6}     // slower/faster cycle
+      />
         </div>
 
         <div className="bg-[radial-gradient(50%_50%_at_50%_50%,#282827_0%,#2A2A29_100%)] px-24 py-[12%]">
@@ -367,7 +390,6 @@ const handleOpenBook2 = () => {
           <Image src="/bnb.png" width={500} height={500} alt="img" />
           </div>
         </div>
-
         <div className="bg-[url(/about-bg.png)] bg-cover bg-center h-full px-6 py-[5%] flex flex-col justify-center">
           <h1 className="text-black mama-bear text-md mb-2">About bnb book</h1>
           <p className="single-day text-black text-sm !leading-[100%]">
